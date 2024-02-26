@@ -1,0 +1,61 @@
+<app-toolbar></app-toolbar>
+<div *ngIf="isLogged; else loggedOut">
+ 
+  <button *ngIf="isAdmin" mat-raised-button color="primary" class="tobones"  (click)="agregar()">Agregar Marca</button>
+  
+  <div class="contenedor">
+    <div class="">
+      <mat-form-field>
+        <input matInput (keyup)="filtrar($event)" placeholder="Escribe una palabra que quiera buscar" #input>
+      </mat-form-field>
+    </div>
+  
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+  
+        <!-- ID Column -->
+        <ng-container matColumnDef="Nro">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Número </th>
+          <td mat-cell *matCellDef="let i = index"> {{ i+1 }} </td>
+        </ng-container>
+  
+        <!-- Progress Column -->
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+          <td mat-cell *matCellDef="let row"> {{row.nombreMarca}} </td>
+        </ng-container>
+  
+  
+        <ng-container matColumnDef="Acciones">
+          <th mat-header-cell *matHeaderCellDef>
+            <ng-container *ngIf="isAdmin">
+              Acciones
+            </ng-container>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <button *ngIf="isAdmin" mat-button color="primary" (click)="editar(row)">
+              <mat-icon> edit</mat-icon>
+            </button>
+            <button *ngIf="isAdmin" mat-button color="warn" (click)="eliminar(row.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+  
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+      </table>
+      <mat-paginator [length]="100" [pageSize]="2" [pageSizeOptions]="[2, 4, 10]"
+      [length]="cantidad" (page)="paginador($event)" aria-label="Select page">
+      </mat-paginator>
+  
+    </div>
+  </div>
+  
+</div>
+
+<ng-template #loggedOut>
+  <h2>No has iniciado Sesión</h2>
+</ng-template>

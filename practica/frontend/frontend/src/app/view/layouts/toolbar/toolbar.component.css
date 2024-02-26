@@ -1,0 +1,12 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.container {
+  width: 90%;
+  align-items: center;
+}
+
+.tobones{
+  margin-left: 5px;
+}

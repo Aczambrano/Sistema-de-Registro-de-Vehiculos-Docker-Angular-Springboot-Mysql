@@ -1,0 +1,58 @@
+<div class="contenedor">
+  <form [formGroup]="myForm" (ngSubmit)="guardar()" class="formulario">
+    <!-- Información de la institución -->
+    <div class="columna-unico">
+      <div class="input-container">
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombres:</mat-label>
+          <input matInput formControlName="nombreModelo" required>          
+          <mat-error *ngIf="myForm?.get('nombreModelo')?.hasError('required')">
+            Por favor, ingrese los nombres.
+          </mat-error>          
+        </mat-form-field>
+      </div>
+
+      <div class="input-container">
+        <mat-form-field class="example-full-width">
+          <mat-label>descripcion:</mat-label>
+          <input matInput formControlName="descripcionModelo" required>          
+          <mat-error *ngIf="myForm?.get('descripcionModelo')?.hasError('descripcionModelo')">
+            Por favor, ingrese la descripcion.
+          </mat-error>            
+        </mat-form-field>
+      </div>
+
+      <div class="input-container">
+        <mat-form-field class="example-full-width">
+          <mat-label>Año:</mat-label>
+          <input matInput formControlName="anioModelo" required>          
+          <mat-error *ngIf="myForm?.get('anioModelo')?.hasError('required')">
+            Por favor, ingrese el año.
+          </mat-error>    
+          <mat-error *ngIf="myForm?.get('anioModelo')?.hasError('pattern')">
+            La cantidad debe ser un valor entero.
+          </mat-error>      
+        </mat-form-field>
+      </div>
+
+      <div class="input-container">
+        <mat-form-field>
+          <mat-label>Seleccione Marca</mat-label>
+          <mat-select formControlName="marcaVehiculo"  required class="dropdown">
+            <mat-option *ngFor="let p of marca" [value]="p.id">
+              {{p.nombreMarca}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="myForm?.get('marcaVehiculo')?.hasError('required')">
+            Por favor, ingrese la marca.
+          </mat-error>
+        </mat-form-field>
+
+      </div>
+
+    </div>
+    <button mat-raised-button color="primary" [disabled]="myForm.invalid" (click)="guardar()">Guardar</button>
+    <button mat-raised-button color="warn" (click)="cancelar(true)">Cancelar</button>
+  
+  </form>
+</div>

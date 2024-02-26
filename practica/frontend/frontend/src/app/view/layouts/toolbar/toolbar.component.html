@@ -1,0 +1,17 @@
+<div>
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>{{nombre}}</span>
+    <span class="example-spacer"></span>
+
+    <button *ngIf="!isLogged" mat-raised-button color="primary" class="tobones" (click)="login()">Iniciar Sesión</button>
+
+    <button *ngIf="isLogged" mat-raised-button class="tobones"  (click)="vehiculos()">Vehiculos</button>
+    <button *ngIf="isLogged" mat-raised-button color="accent" class="tobones"  (click)="modelos()">Modelos</button>
+    <button *ngIf="isLogged" mat-raised-button color="warn" class="tobones"  (click)="marca()">Marca</button>
+    <button *ngIf="isLogged" mat-raised-button color="primary" class="tobones"  (click)="onLogOut()">Cerrar Sesión</button>
+
+  </mat-toolbar>
+</div>

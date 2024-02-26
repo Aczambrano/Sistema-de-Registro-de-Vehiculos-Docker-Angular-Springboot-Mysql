@@ -1,0 +1,57 @@
+.Column2 {
+    width: 25px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .contenedor {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    background-color: #ffffff;
+    position: relative;
+    z-index: 1;
+  }
+  
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .custom-dialog-container {
+    margin-top: 50px; /* Ajusta el valor según sea necesario */
+    max-width: 800px;
+    max-height: 500px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .container {
+    display: flex;
+    align-items: center;
+  }
+  .imagen-redonda {
+    width: 100px; /* ajusta el tamaño según sea necesario */
+    height: 100px; /* ajusta el tamaño según sea necesario */
+    border-radius: 50%; /* hace que la imagen sea redonda */
+    overflow: hidden; /* asegura que la imagen no sobresalga del área redonda */
+    border: 2px solid #333; /* agrega un borde oscuro */
+
+  }
+  
+  .nombre {
+    margin-right: 10px; /* Ajusta el margen según sea necesario */
+  }
+  
+  .foto {
+    width: 50px; /* Ajusta el tamaño de la foto según sea necesario */
+    height: 50px; /* Ajusta el tamaño de la foto según sea necesario */
+    border-radius: 50%; /* Para que la foto sea circular */
+  }
+  .tobones{
+    margin-top: 15px;
+    margin-left: 15px;
+
+  }

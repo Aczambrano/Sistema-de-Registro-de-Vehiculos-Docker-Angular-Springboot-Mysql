@@ -1,0 +1,19 @@
+<div class="contenedor">
+  <form [formGroup]="myForm" (ngSubmit)="guardar()" class="formulario">
+    <!-- Información de la institución -->
+    <div class="columna-unico">
+      <div class="input-container">
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre Marca:</mat-label>
+          <input matInput formControlName="nombre" required>          
+          <mat-error *ngIf="myForm?.get('nombre')?.hasError('required')">
+            Por favor, ingrese los nombres.
+          </mat-error>          
+        </mat-form-field>
+      </div>
+    </div>
+    <button mat-raised-button color="primary" [disabled]="myForm.invalid" (click)="guardar()">Guardar</button>
+    <button mat-raised-button color="warn" (click)="cancelar(true)">Cancelar</button>
+  
+  </form>
+</div>

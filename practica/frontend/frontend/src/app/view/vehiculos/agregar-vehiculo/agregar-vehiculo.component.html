@@ -1,0 +1,58 @@
+<div class="contenedor">
+  <form [formGroup]="myForm" (ngSubmit)="guardar()" class="formulario">
+    <!-- Información de la institución -->
+    <div class="columna-unico">
+      <div class="input-container">
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombres:</mat-label>
+          <input matInput formControlName="nombreVehiculo" required>          
+          <mat-error *ngIf="myForm?.get('nombreVehiculo')?.hasError('required')">
+            Por favor, ingrese los nombres.
+          </mat-error>          
+        </mat-form-field>
+      </div>
+
+      <div class="input-container">
+        <mat-form-field class="example-full-width">
+          <mat-label>descripcion:</mat-label>
+          <input matInput formControlName="descripcionVehiculo" required>          
+          <mat-error *ngIf="myForm?.get('descripcionVehiculo')?.hasError('descripcionVehiculo')">
+            Por favor, ingrese la descripcion.
+          </mat-error>            
+        </mat-form-field>
+      </div>
+
+      <div class="input-container">
+        <mat-form-field class="example-full-width">
+          <mat-label>Año:</mat-label>
+          <input matInput formControlName="anioVehiculo" required>          
+          <mat-error *ngIf="myForm?.get('anioVehiculo')?.hasError('required')">
+            Por favor, ingrese el año.
+          </mat-error>    
+          <mat-error *ngIf="myForm?.get('anioVehiculo')?.hasError('pattern')">
+            La cantidad debe ser un valor entero.
+          </mat-error>      
+        </mat-form-field>
+      </div>
+
+      <div class="input-container">
+        <mat-form-field>
+          <mat-label>Seleccione Modelo</mat-label>
+          <mat-select formControlName="modelo"  required class="dropdown">
+            <mat-option *ngFor="let p of modelo" [value]="p.id">
+              {{p.nombre}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="myForm?.get('modelo')?.hasError('required')">
+            Por favor, ingrese el modelo.
+          </mat-error>
+        </mat-form-field>
+
+      </div>
+
+    </div>
+    <button mat-raised-button color="primary" [disabled]="myForm.invalid" (click)="guardar()">Guardar</button>
+    <button mat-raised-button color="warn" (click)="cancelar(true)">Cancelar</button>
+  
+  </form>
+</div>
